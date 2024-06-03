@@ -17,9 +17,10 @@ useHead({
 <template>
   <DashboardLayout>
     <PageHeader title="Bus Routes" subtitle="Manage postings of bus routes & destinations" :breadcrumbs="['Bus Routes']">
-      <div class="flex flex-row gap-2">
-        <a-button>Export to CSV</a-button>
-        <a-button type="primary">Create Route</a-button>
+      <div class="h-[40px] flex flex-row gap-2">
+        <a-button class="h-full text-sm">Apply Filters</a-button>
+        <a-button class="h-full text-sm">Export to CSV</a-button>
+        <a-button type="primary" class="h-full text-sm">Create Route</a-button>
       </div>
     </PageHeader>
 

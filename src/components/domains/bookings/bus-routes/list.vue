@@ -43,6 +43,16 @@ const columns = computed(() => {
       key: "arrival",
     },
     {
+      title: "Date Added",
+      dataIndex: "createdAt",
+      key: "createdAt",
+    },
+    {
+      title: "Last Updated",
+      dataIndex: "updatedAt",
+      key: "updatedAt",
+    },
+    {
       title: "Actions",
       dataIndex: "actions",
       key: "actions",
