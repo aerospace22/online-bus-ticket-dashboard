@@ -1,5 +1,8 @@
 <script lang="ts" setup>
 import { computed } from "vue";
+import { useFormatter } from "@/composables";
+
+const { formatDate } = useFormatter();
 
 defineProps<{
   data?: any[];
@@ -72,6 +75,12 @@ const columns = computed(() => {
         <template v-if="column.key === 'routeFrom'"> {{ record.routeFrom }} - {{ record.routeTo }} </template>
         <template v-if="column.key === 'departure'"> {{ record.departureDate }} - {{ record.departureTime }} </template>
         <template v-if="column.key === 'arrival'"> {{ record.arrivalDate }} - {{ record.arrivalTime }} </template>
+        <template v-if="column.key === 'createdAt'">
+          {{ formatDate(record.createdAt) }}
+        </template>
+        <template v-if="column.key === 'updatedAt'">
+          {{ formatDate(record.updatedAt) }}
+        </template>
         <template v-if="column.key === 'actions'">
           <div class="flex flex-row gap-2">
             <a-button type="primary">Manage</a-button>
