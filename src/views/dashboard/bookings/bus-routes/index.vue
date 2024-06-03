@@ -1,8 +1,15 @@
 <script lang="ts" setup>
 import { useHead } from "@unhead/vue";
+import { useRouter } from "vue-router";
 import { useQuery } from "@tanstack/vue-query";
 import { BusRoutesService } from "@/services";
 import BusRoutesList from "@/components/domains/bookings/bus-routes/list.vue";
+
+const router = useRouter();
+
+const handleRedirect = (route: string) => {
+  router.push({ name: route });
+};
 
 const { isLoading, data } = useQuery({
   queryKey: ["data-bus-routes"],
@@ -20,7 +27,7 @@ useHead({
       <div class="h-[40px] flex flex-row gap-2">
         <a-button class="h-full text-sm">Apply Filters</a-button>
         <a-button class="h-full text-sm">Export to CSV</a-button>
-        <a-button type="primary" class="h-full text-sm">Create Route</a-button>
+        <a-button type="primary" class="h-full text-sm" @click="handleRedirect('dashboard-bookings-bus-routes-create')">Create Route</a-button>
       </div>
     </PageHeader>
 

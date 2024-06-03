@@ -131,9 +131,9 @@ const linkGroups = computed(() => {
       </div>
     </div>
     <div class="h-screen w-full ml-[280px]">
-      <div class="h-[60px] w-full bg-white shadow"></div>
+      <div class="h-[60px] w-full bg-white shadow hidden"></div>
 
-      <div class="p-5" style="zoom: 0.9">
+      <div style="zoom: 0.9">
         <slot />
       </div>
     </div>

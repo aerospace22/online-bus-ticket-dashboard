@@ -9,8 +9,6 @@ useHead({
 <template>
   <DashboardLayout>
     <PageHeader title="Dashboard Overview" :breadcrumbs="['Overview']"></PageHeader>
-
-    dashboard home
   </DashboardLayout>
 </template>
 

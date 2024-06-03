@@ -6,10 +6,12 @@ import path from "node:path";
 import Components from "unplugin-vue-components/vite";
 import AutoImport from "unplugin-auto-import/vite";
 
+const isDev = window.location.host.includes("local") || window.location.host.includes("127.0.0.1");
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
-  const API_BASEURL = env.VITE_APP_API_BASEURL;
+  const API_BASEURL = isDev ? env.VITE_APP_API_BASEURL : env.VITE_APP_API_BASEURL_PROD;
 
   return {
     plugins: [

@@ -16,42 +16,42 @@ const formatTicketPrice = new Intl.NumberFormat("en-US", {
 const columns = computed(() => {
   return [
     {
-      title: "Route #",
+      title: "ROUTE #",
       dataIndex: "routeCode",
       key: "routeCode",
     },
     {
-      title: "Bus #",
+      title: "BUS #",
       dataIndex: "busNo",
       key: "busNo",
     },
     {
-      title: "Ticket Price",
+      title: "TICKET PRICE",
       dataIndex: "ticketPrice",
       key: "ticketPrice",
     },
     {
-      title: "P2P Route",
+      title: "P2P ROUTE",
       dataIndex: "routeFrom",
       key: "routeFrom",
     },
     {
-      title: "Departure",
+      title: "DEPARTURE",
       dataIndex: "departure",
       key: "departure",
     },
     {
-      title: "Arrival",
+      title: "ARRIVAL",
       dataIndex: "arrival",
       key: "arrival",
     },
     {
-      title: "Date Added",
+      title: "DATE ADDED",
       dataIndex: "createdAt",
       key: "createdAt",
     },
     {
-      title: "Last Updated",
+      title: "LAST UPDATED",
       dataIndex: "updatedAt",
       key: "updatedAt",
     },
@@ -65,7 +65,7 @@ const columns = computed(() => {
 </script>
 
 <template>
-  <div>
+  <div class="bg-white rounded-md border border-gray-200">
     <a-table :dataSource="$props.data" :columns="columns">
       <template #bodyCell="{ column, record }">
         <template v-if="column.key === 'routeCode'">

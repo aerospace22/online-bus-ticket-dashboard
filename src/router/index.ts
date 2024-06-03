@@ -27,6 +27,11 @@ const router: Router = createRouter({
       name: "dashboard-bookings-bus-routes",
       component: () => import("@/views/dashboard/bookings/bus-routes/index.vue"),
     },
+    {
+      path: "/app/dashboard/bookings/bus-routes/create",
+      name: "dashboard-bookings-bus-routes-create",
+      component: () => import("@/views/dashboard/bookings/bus-routes/create.vue"),
+    },
   ],
 });
 
