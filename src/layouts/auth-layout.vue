@@ -2,7 +2,7 @@
 
 <template>
   <div class="auth-layout h-screen w-screen flex justify-center items-center bg-slate-900">
-    <div class="auth-layout-content">
+    <div class="auth-layout-content max-w-[380px]">
       <slot />
     </div>
   </div>

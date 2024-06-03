@@ -1,5 +1,13 @@
 <script lang="ts" setup>
 import { useHead } from "@unhead/vue";
+import { useQuery } from "@tanstack/vue-query";
+import { BusRoutesService } from "@/services";
+import BusRoutesList from "@/components/domains/bookings/bus-routes/list.vue";
+
+const { isLoading, data } = useQuery({
+  queryKey: ["data-bus-routes"],
+  queryFn: async () => await BusRoutesService.getList(),
+});
 
 useHead({
   title: "Bookings - Bus Routes | Backoffice Dashboard",
@@ -15,7 +23,14 @@ useHead({
       </div>
     </PageHeader>
 
-    <a-card class="min-h-[200px] shadow"></a-card>
+    <div class="min-h-[200px]">
+      <div v-if="isLoading" class="flex flex-col justify-center items-center gap-3 my-5">
+        <a-spin size="lg" />
+        <p class="text-sm text-gray-600">Fetching data</p>
+      </div>
+
+      <BusRoutesList :data="data" v-else />
+    </div>
   </DashboardLayout>
 </template>
 

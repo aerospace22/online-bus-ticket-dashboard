@@ -39,9 +39,9 @@ const linkGroups = computed(() => {
         },
         {
           label: "Traveller Itineraries",
-          route: "dashboard-home",
+          route: "dashboard-bookings-traveller-itineraries",
           iconName: "map",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-bookings-traveller-itineraries"),
         },
       ],
     },
@@ -49,10 +49,10 @@ const linkGroups = computed(() => {
       name: "Payments",
       children: [
         {
-          label: "History",
-          route: "dashboard-home",
+          label: "Transactions List",
+          route: "dashboard-payments-transactions-list",
           iconName: "list",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-payments-transactions-list"),
         },
       ],
     },
@@ -61,9 +61,9 @@ const linkGroups = computed(() => {
       children: [
         {
           label: "Sales",
-          route: "dashboard-home",
+          route: "dashboard-reports-sales",
           iconName: "bar-chart",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-reports-sales"),
         },
       ],
     },
@@ -72,27 +72,27 @@ const linkGroups = computed(() => {
       children: [
         {
           label: "Customer Profiles",
-          route: "dashboard-home",
+          route: "dashboard-admin-customer-profiles",
           iconName: "users",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-admin-customer-profiles"),
         },
         {
           label: "Accounts",
-          route: "dashboard-home",
+          route: "dashboard-admin-accounts",
           iconName: "users",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-admin-accounts"),
         },
         {
           label: "Logs",
-          route: "dashboard-home",
+          route: "dashboard-admin-logs",
           iconName: "file-text",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-admin-logs"),
         },
         {
           label: "Backups",
-          route: "dashboard-home",
+          route: "dashboard-admin-backups",
           iconName: "database",
-          isActive: isActive("dashboard-home"),
+          isActive: isActive("dashboard-admin-backups"),
         },
       ],
     },
