@@ -4,6 +4,10 @@ const router: Router = createRouter({
   history: createWebHistory(),
   routes: [
     {
+      path: "/",
+      redirect: "/app/login",
+    },
+    {
       path: "/:pathMatch(.*)*",
       name: "404",
       component: () => import("@/views/404.vue"),

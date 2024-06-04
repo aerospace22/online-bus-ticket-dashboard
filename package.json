@@ -12,6 +12,7 @@
     "@chenfengyuan/vue-barcode": "2",
     "@chenfengyuan/vue-qrcode": "2",
     "@tanstack/vue-query": "^5.40.0",
+    "@tanstack/vue-query-devtools": "^5.40.0",
     "@unhead/vue": "^1.9.11",
     "ant-design-vue": "4.x",
     "apexcharts": "^3.49.1",

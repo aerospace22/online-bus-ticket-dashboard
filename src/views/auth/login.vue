@@ -4,6 +4,7 @@ import { useHead } from "@unhead/vue";
 import { AuthService } from "@/services";
 
 const state = reactive({
+  loading: false,
   credentials: {
     email: "admin@domain.com",
     password: "password",
@@ -11,7 +12,12 @@ const state = reactive({
 });
 
 const handleLogin = async () => {
-  return await AuthService.login(state.credentials);
+  state.loading = true;
+  return await AuthService.login(state.credentials).finally(() => {
+    setTimeout(() => {
+      state.loading = false;
+    }, 2000);
+  });
 };
 
 useHead({
@@ -22,27 +28,33 @@ useHead({
 <template>
   <AuthLayout>
     <form class="flex flex-col gap-3" @submit.prevent="handleLogin">
-      <h1 class="text-center text-white text-sm">CUL BUS TRANSPORT</h1>
-      <h1 class="text-center text-white text-md">Bookings Backoffice Dashboard</h1>
+      <h1 class="text-center text-gray-700 text-md font-bold">BACKOFFICE DASHBOARD MANAGEMENT</h1>
 
-      <div>
+      <div class="w-full flex flex-col gap-3">
         <input
           v-model="state.credentials.email"
           type="email"
-          class="w-full h-[45px] text-xs text-gray-700 border-b-2 border-gray-200 rounded-tl-md rounded-tr-md focus:outline-none px-3"
-          placeholder="Enter username"
+          class="w-full h-[45px] text-xs text-gray-700 border border-gray-300 rounded px-3"
+          placeholder="Enter e-mail"
           autofocus
           required
         />
         <input
           v-model="state.credentials.password"
           type="password"
-          class="w-full h-[45px] text-xs text-gray-700 focus:outline-none rounded-bl-md rounded-br-md px-3"
+          class="w-full h-[45px] text-xs text-gray-700 border border-gray-300 rounded px-3"
           placeholder="Enter password"
           required
         />
+        <a href="#" class="text-xs text-blue-700 text-right underline">Reset Password</a>
+        <button
+          class="w-full h-[45px] text-xs text-white bg-blue-600 rounded-md"
+          :class="{ 'bg-blue-200 hover:cursor-not-allowed': state.loading }"
+          :disabled="state.loading"
+        >
+          LOGIN
+        </button>
       </div>
-      <button class="w-full h-[40px] text-xs text-white bg-blue-600 rounded-md">Log In</button>
     </form>
   </AuthLayout>
 </template>

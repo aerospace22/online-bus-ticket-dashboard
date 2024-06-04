@@ -3,7 +3,6 @@ import { $http } from "@/api";
 
 export const AuthService = {
   login: async function (credentials: any) {
-    console.log(credentials);
     return await $http
       .post("/auth/login", { ...credentials, loginType: "admin" })
       .then((response) => {
